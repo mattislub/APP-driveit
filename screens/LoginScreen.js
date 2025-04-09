@@ -16,7 +16,7 @@ export default function LoginScreen({ navigation }) {
         <ImageBackground
           source={require('../assets/images/new-bg.png')}
           style={styles.background}
-          resizeMode="cover"
+          resizeMode="contain"
         >
           <LinearGradient
             colors={['#F5F5F5', 'transparent']}
