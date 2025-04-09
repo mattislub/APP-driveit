@@ -19,10 +19,10 @@ export default function LoginScreen({ navigation }) {
           resizeMode="stretch"
         />
 
-        {/* גרדיאנט על כל המסך – אפור עדין -> שקוף לגמרי */}
+        {/* גרדיאנט עדין ורך יותר */}
         <LinearGradient
-          colors={['#F5F5F5', 'transparent']}
-          style={styles.fullScreenFade}
+          colors={['#FFFFFF', '#FAFAFA', '#F5F5F5', 'transparent']}
+          style={styles.softFadeFromTop}
         />
 
         {/* כותרת עליונה */}
@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
     height: 480,
     zIndex: 0,
   },
-  fullScreenFade: {
+  softFadeFromTop: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: 640,
+    height: 360, // נחשף מוקדם יותר
     zIndex: 1,
   },
   bottomBar: {
