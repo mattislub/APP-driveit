@@ -55,13 +55,15 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   fullWidthImage: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: 480,
-    height: 480,
-    zIndex: 0,
-  },
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width: 480,
+  height: 480,
+  zIndex: 0,
+  opacity: 0.5, // או פחות אם רוצים שקיפות חזקה יותר
+},
+
   softFadeFromTop: {
     position: 'absolute',
     top: 0,
