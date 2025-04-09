@@ -12,20 +12,19 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        {/* תמונה בתחתית, עם רוחב מלא ויחס קבוע */}
+        {/* תמונה בתחתית, שלמה ולא חתוכה */}
         <Image
           source={require('../assets/images/new-bg.png')}
-          style={styles.image}
+          style={styles.backgroundImage}
           resizeMode="contain"
         />
 
-        {/* שכבת גרדיאנט רכה על כל המסך */}
+        {/* גרדיאנט עליון */}
         <LinearGradient
           colors={['#F5F5F5', 'transparent']}
-          style={styles.gradientOverlay}
+          style={styles.gradient}
         />
 
-        {/* תפריט עליון ותחתון */}
         <TopHeader
           onPressMenu={() => handlePress('תפריט')}
           onPressAction={() => handlePress('חיוב')}
@@ -52,28 +51,27 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 0,
     position: 'relative',
-    backgroundColor: '#F5F5F5',
   },
-  image: {
-    width: '100%',
-    height: undefined,
-    aspectRatio: 1.5, // היחס של התמונה שלך – אפשר להתאים לפי התמונה
+  backgroundImage: {
     position: 'absolute',
     bottom: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 0,
   },
-  gradientOverlay: {
+  gradient: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
-    zIndex: 2,
+    height: 180,
+    zIndex: 5,
   },
   bottomBar: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    zIndex: 3,
+    zIndex: 10,
   },
 });
