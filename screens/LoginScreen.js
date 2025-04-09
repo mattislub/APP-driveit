@@ -19,9 +19,9 @@ export default function LoginScreen({ navigation }) {
           resizeMode="stretch"
         />
 
-        {/* רקע אפור משתלב מלמעלה עד אמצע התמונה */}
+        {/* רקע אפור עדין משתלב בהדרגה */}
         <LinearGradient
-          colors={['#D3D3D3', 'transparent']}
+          colors={['#F2F2F2', 'rgba(242,242,242,0.5)', 'transparent']}
           style={styles.fadeBackground}
         />
 
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 240, // חצי מגובה התמונה
+    height: 300,
     zIndex: 1,
   },
   bottomBar: {
