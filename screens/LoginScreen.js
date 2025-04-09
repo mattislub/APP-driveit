@@ -12,11 +12,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        <ImageBackground
-          source={require('../assets/images/empty-bg.png')} // רקע ניטרלי
-          style={styles.background}
-          resizeMode="cover"
-        >
+        <View style={styles.background}>
           {/* תמונה בתחתית */}
           <Image
             source={require('../assets/images/new-bg.png')}
@@ -37,7 +33,7 @@ export default function LoginScreen({ navigation }) {
           <View style={styles.bottomBar}>
             <BottomNavBar onPress={(label) => handlePress(label)} />
           </View>
-        </ImageBackground>
+        </View>
       </View>
     </View>
   );
