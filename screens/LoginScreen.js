@@ -19,17 +19,19 @@ export default function LoginScreen({ navigation }) {
           resizeMode="stretch"
         />
 
-        {/* גרדיאנט עליון */}
+        {/* רקע אפור משתלב מלמעלה עד אמצע התמונה */}
         <LinearGradient
-          colors={['#F5F5F5', 'transparent']}
-          style={styles.gradient}
+          colors={['#D3D3D3', 'transparent']}
+          style={styles.fadeBackground}
         />
 
+        {/* כותרת עליונה */}
         <TopHeader
           onPressMenu={() => handlePress('תפריט')}
           onPressAction={() => handlePress('חיוב')}
         />
 
+        {/* סרגל תחתון */}
         <View style={styles.bottomBar}>
           <BottomNavBar onPress={(label) => handlePress(label)} />
         </View>
@@ -60,13 +62,13 @@ const styles = StyleSheet.create({
     height: 480,
     zIndex: 0,
   },
-  gradient: {
+  fadeBackground: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: 180,
-    zIndex: 5,
+    height: 240, // חצי מגובה התמונה
+    zIndex: 1,
   },
   bottomBar: {
     position: 'absolute',
