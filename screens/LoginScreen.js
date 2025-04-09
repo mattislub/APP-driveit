@@ -12,17 +12,23 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        {/* תמונה ברוחב מלא */}
+        {/* תמונה שממוקמת בתחתית ותופסת רוחב מלא */}
         <Image
           source={require('../assets/images/new-bg.png')}
           style={styles.fullWidthImage}
-          resizeMode="contain"
+          resizeMode="cover"
         />
 
-        {/* שכבת גרדיאנט על כל המסך */}
+        {/* גרדיאנט עליון */}
         <LinearGradient
           colors={['#F5F5F5', 'transparent']}
-          style={styles.fullScreenGradient}
+          style={styles.gradientTop}
+        />
+
+        {/* גרדיאנט תחתון */}
+        <LinearGradient
+          colors={['transparent', '#F5F5F5']}
+          style={styles.gradientBottom}
         />
 
         {/* תוכן */}
@@ -59,12 +65,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
   },
-  fullScreenGradient: {
+  gradientTop: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
+    height: 200,
+    zIndex: 2,
+  },
+  gradientBottom: {
+    position: 'absolute',
     bottom: 0,
+    left: 0,
+    right: 0,
+    height: 100,
     zIndex: 2,
   },
   bottomBar: {
