@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 360, // נחשף מוקדם יותר
+    height: 280, // נחשף מוקדם יותר
     zIndex: 1,
   },
   bottomBar: {
