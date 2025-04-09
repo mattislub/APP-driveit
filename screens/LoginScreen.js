@@ -63,4 +63,22 @@ const styles = StyleSheet.create({
   innerImage: {
     width: '100%',
     height: '50%',
-    position:
+    position: 'absolute',
+    bottom: 0,
+  },
+  gradient: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 180,
+    zIndex: 5,
+  },
+  bottomBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+  },
+});
