@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import SvgUri from 'react-native-svg-uri'; // ודא שהחבילה מותקנת
+import Logo from '../assets/Vector.svg'; // השתמש בייבוא SVG ישיר
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SplashScreen({ navigation }) {
@@ -13,7 +13,7 @@ export default function SplashScreen({ navigation }) {
         } else {
           navigation.replace('Setup');
         }
-      }, 1500); // 1.5 שניות
+      }, 1500); // השהייה של 1.5 שניות
     };
 
     init();
@@ -21,11 +21,7 @@ export default function SplashScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <SvgUri
-        width="220"
-        height="220"
-        source={require('../assets/Vector.svg')} // ודא שזה הנתיב
-      />
+      <Logo width={220} height={220} />
     </View>
   );
 }
