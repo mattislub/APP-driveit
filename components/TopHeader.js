@@ -7,12 +7,12 @@ export default function TopHeader({ onPressMenu, onPressAction }) {
   return (
     <View style={styles.header}>
       {/* תפריט בצד ימין */}
-      <TouchableOpacity onPress={onPressMenu} style={[styles.iconWrapper, { position: 'absolute', right: 16 }]}>
+      <TouchableOpacity onPress={onPressMenu} style={[styles.iconWrapper, { position: 'absolute', right: 32 }]}>
         <MenuIcon width={30} height={30} />
       </TouchableOpacity>
 
       {/* כפתור חיוב בצד שמאל */}
-      <TouchableOpacity onPress={onPressAction} style={[styles.iconWrapper, { position: 'absolute', left: 16 }]}>
+      <TouchableOpacity onPress={onPressAction} style={[styles.iconWrapper, { position: 'absolute', left: 32 }]}>
         <Text style={styles.leftButton}>חיוב</Text>
       </TouchableOpacity>
     </View>
@@ -22,7 +22,7 @@ export default function TopHeader({ onPressMenu, onPressAction }) {
 const styles = StyleSheet.create({
   header: {
     position: 'absolute',
-    top: 0,
+    top: 32,
     left: 0,
     right: 0,
     height: 60,
