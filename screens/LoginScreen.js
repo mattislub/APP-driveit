@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import TopHeader from '../components/TopHeader';
 import BottomNavBar from '../components/BottomNavBar';
@@ -12,26 +12,20 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        {/* תמונה שממוקמת בתחתית ותופסת רוחב מלא */}
+        {/* תמונה בתחתית, עם רוחב מלא ויחס קבוע */}
         <Image
           source={require('../assets/images/new-bg.png')}
-          style={styles.fullWidthImage}
-          resizeMode="cover"
+          style={styles.image}
+          resizeMode="contain"
         />
 
-        {/* גרדיאנט עליון */}
+        {/* שכבת גרדיאנט רכה על כל המסך */}
         <LinearGradient
           colors={['#F5F5F5', 'transparent']}
-          style={styles.gradientTop}
+          style={styles.gradientOverlay}
         />
 
-        {/* גרדיאנט תחתון */}
-        <LinearGradient
-          colors={['transparent', '#F5F5F5']}
-          style={styles.gradientBottom}
-        />
-
-        {/* תוכן */}
+        {/* תפריט עליון ותחתון */}
         <TopHeader
           onPressMenu={() => handlePress('תפריט')}
           onPressAction={() => handlePress('חיוב')}
@@ -58,27 +52,21 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 0,
     position: 'relative',
+    backgroundColor: '#F5F5F5',
   },
-  fullWidthImage: {
+  image: {
     width: '100%',
-    height: '100%',
+    height: undefined,
+    aspectRatio: 1.5, // היחס של התמונה שלך – אפשר להתאים לפי התמונה
     position: 'absolute',
     bottom: 0,
   },
-  gradientTop: {
+  gradientOverlay: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: 200,
-    zIndex: 2,
-  },
-  gradientBottom: {
-    position: 'absolute',
     bottom: 0,
-    left: 0,
-    right: 0,
-    height: 100,
     zIndex: 2,
   },
   bottomBar: {
