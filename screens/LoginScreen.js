@@ -19,9 +19,9 @@ export default function LoginScreen({ navigation }) {
           resizeMode="stretch"
         />
 
-        {/* גרדיאנט ארוך ועדין מלמעלה – כמו בתמונה ששלחת */}
+        {/* גרדיאנט עדין ורך יותר */}
         <LinearGradient
-          colors={['#FFFFFF', '#F7F7F7', '#F2F2F2', 'transparent']}
+          colors={['#FFFFFF', '#FAFAFA', '#F5F5F5', 'transparent']}
           style={styles.softFadeFromTop}
         />
 
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 480, // כמעט עד התחתית של התמונה
+    height: 360, // נחשף מוקדם יותר
     zIndex: 1,
   },
   bottomBar: {
