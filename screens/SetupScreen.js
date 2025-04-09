@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import ScreenWrapper from '../components/ScreenWrapper'; // ודא שהנתיב נכון
+import ScreenWrapper from '../components/ScreenWrapper';
 import TopHeader from '../components/TopHeader';
 
 export default function SetupScreen({ navigation }) {
   const [deviceSerial, setDeviceSerial] = useState('');
   const [companySerial, setCompanySerial] = useState('');
   const [driverId, setDriverId] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSave = async () => {
     if (!deviceSerial || !companySerial || !driverId) {
       Alert.alert('שגיאה', 'אנא מלא את כל השדות');
       return;
     }
+
+    setLoading(true);
 
     const data = {
       deviceSerial,
@@ -23,8 +26,11 @@ export default function SetupScreen({ navigation }) {
 
     try {
       await AsyncStorage.setItem('deviceSetup', JSON.stringify(data));
-      navigation.replace('Login'); // מעבר למסך הבא
+      setTimeout(() => {
+        navigation.replace('Login');
+      }, 1000);
     } catch (error) {
+      setLoading(false);
       Alert.alert('שגיאה', 'אירעה שגיאה בעת שמירת הנתונים');
     }
   };
@@ -63,7 +69,14 @@ export default function SetupScreen({ navigation }) {
         />
 
         <View style={{ marginTop: 20 }}>
-          <Button title="המשך" onPress={handleSave} />
+          {loading ? (
+            <View style={{ alignItems: 'center' }}>
+              <ActivityIndicator size="large" color="#000" />
+              <Text style={{ marginTop: 10, fontSize: 16 }}>מגדיר את המכשיר...</Text>
+            </View>
+          ) : (
+            <Button title="המשך" onPress={handleSave} />
+          )}
         </View>
       </View>
     </ScreenWrapper>
