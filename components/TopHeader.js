@@ -1,19 +1,23 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, I18nManager } from 'react-native';
 import MenuIcon from './MenuIcon';
 
 export default function TopHeader({ onPressMenu, onPressAction }) {
   return (
     <View style={styles.header}>
-      {/* אייקון תפריט בצד ימין */}
-      <TouchableOpacity onPress={onPressMenu} style={styles.menuIconWrapper}>
-        <MenuIcon width={30} height={30} />
-      </TouchableOpacity>
+      {/* תפריט בצד ימין */}
+      <View style={styles.right}>
+        <TouchableOpacity onPress={onPressMenu} style={styles.menuIconWrapper}>
+          <MenuIcon width={30} height={30} />
+        </TouchableOpacity>
+      </View>
 
-      {/* כפתור חיוב בצד שמאל */}
-      <TouchableOpacity onPress={onPressAction} style={styles.leftButtonWrapper}>
-        <Text style={styles.leftButton}>חיוב</Text>
-      </TouchableOpacity>
+      {/* חיוב בצד שמאל */}
+      <View style={styles.left}>
+        <TouchableOpacity onPress={onPressAction} style={styles.leftButtonWrapper}>
+          <Text style={styles.leftButton}>חיוב</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -32,11 +36,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     zIndex: 10,
   },
+  right: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  left: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   menuIconWrapper: {
-    marginLeft: 8,
+    marginLeft: I18nManager.isRTL ? 0 : 8,
+    marginRight: I18nManager.isRTL ? 8 : 0,
   },
   leftButtonWrapper: {
-    marginRight: 8,
+    marginRight: I18nManager.isRTL ? 0 : 8,
+    marginLeft: I18nManager.isRTL ? 8 : 0,
   },
   leftButton: {
     backgroundColor: '#FFD877',
