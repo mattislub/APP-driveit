@@ -12,17 +12,23 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        {/* תמונה ברקע – קודם */}
+        {/* תמונה ברקע */}
         <Image
           source={require('../assets/images/new-bg.png')}
           style={styles.fullWidthImage}
           resizeMode="stretch"
         />
 
-        {/* רקע אפור רך, משתקף מלמעלה עד למטה */}
+        {/* גרדיאנט עליון – רקע אפור משתלב לכל המסך */}
         <LinearGradient
           colors={['#F2F2F2', 'rgba(242,242,242,0.7)', 'rgba(242,242,242,0.4)', 'transparent']}
           style={styles.fullScreenFade}
+        />
+
+        {/* גרדיאנט תחתון – לריכוך התחלת התמונה מלמעלה */}
+        <LinearGradient
+          colors={['transparent', '#F2F2F2']}
+          style={styles.bottomFade}
         />
 
         {/* כותרת עליונה */}
@@ -67,8 +73,16 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 640, // כל המסך
+    height: 640,
     zIndex: 1,
+  },
+  bottomFade: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 100,
+    zIndex: 2,
   },
   bottomBar: {
     position: 'absolute',
