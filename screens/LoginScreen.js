@@ -12,11 +12,11 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        {/* תמונה בתחתית, שלמה ולא חתוכה */}
+        {/* תמונה מדויקת בתחתית המסך */}
         <Image
           source={require('../assets/images/new-bg.png')}
-          style={styles.backgroundImage}
-          resizeMode="contain"
+          style={styles.manualImage}
+          resizeMode="stretch"
         />
 
         {/* גרדיאנט עליון */}
@@ -25,11 +25,13 @@ export default function LoginScreen({ navigation }) {
           style={styles.gradient}
         />
 
+        {/* כותרת עליונה */}
         <TopHeader
           onPressMenu={() => handlePress('תפריט')}
           onPressAction={() => handlePress('חיוב')}
         />
 
+        {/* סרגל תחתון */}
         <View style={styles.bottomBar}>
           <BottomNavBar onPress={(label) => handlePress(label)} />
         </View>
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F5F5F5', // רקע מסביב
   },
   fixedSize: {
     width: 480,
@@ -52,11 +54,12 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     position: 'relative',
   },
-  backgroundImage: {
+  manualImage: {
     position: 'absolute',
     bottom: 0,
-    width: '100%',
-    height: '100%',
+    left: 13, // (480 - 454) / 2
+    width: 454,
+    height: 480,
     zIndex: 0,
   },
   gradient: {
