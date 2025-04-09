@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ScreenWrapper from '../components/ScreenWrapper'; // ודא שהנתיב נכון
 import TopHeader from '../components/TopHeader';
 
-export default function SetupScreen({ onSetupDone }) {
+export default function SetupScreen({ navigation }) {
   const [deviceSerial, setDeviceSerial] = useState('');
   const [companySerial, setCompanySerial] = useState('');
   const [driverId, setDriverId] = useState('');
@@ -23,7 +23,7 @@ export default function SetupScreen({ onSetupDone }) {
 
     try {
       await AsyncStorage.setItem('deviceSetup', JSON.stringify(data));
-      onSetupDone(); // מעבר לאפליקציה
+      navigation.replace('Login'); // מעבר למסך הבא
     } catch (error) {
       Alert.alert('שגיאה', 'אירעה שגיאה בעת שמירת הנתונים');
     }
