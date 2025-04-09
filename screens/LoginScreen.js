@@ -13,11 +13,12 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-        <ImageBackground
-          source={require('../assets/images/new-bg.png')}
-          style={styles.background}
-          resizeMode="contain"
-        >
+      <ImageBackground
+  source={require('../assets/images/new-bg.png')}
+  style={styles.background}
+  resizeMode="contain"
+  imageStyle={styles.imagePosition} // חדש
+>
           <LinearGradient
             colors={['#F5F5F5', 'transparent']}
             style={styles.gradient}
@@ -52,7 +53,11 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end', // חדש
+    alignItems: 'center',
+  },
+  imagePosition: {
+    alignSelf: 'flex-end', // מיקום התמונה בתחתית
   },
   gradient: {
     position: 'absolute',
@@ -70,3 +75,4 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
 });
+
