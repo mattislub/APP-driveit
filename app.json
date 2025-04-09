@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Mobile App",
+    "slug": "mobile-app",
+    "version": "1.0.0",
+    "sdkVersion": "49.0.0",
+    "updates": {
+      "enabled": true,
+      "fallbackToCacheTimeout": 0
+    },
+    "platforms": [
+      "ios",
+      "android",
+	"web"
+    ],
+    "orientation": "portrait",
+    "backgroundColor": "#ffffff",
+    "userInterfaceStyle": "light"
+  }
+}
