@@ -54,14 +54,17 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     position: 'relative',
   },
+ 
   fullWidthImage: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: 480,
-    height: 480,
-    zIndex: 0,
-  },
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width: 480,
+  height: 480,
+  zIndex: 0,
+  opacity: 0.5, // שקיפות עדינה
+},
+
   softFadeFromTop: {
     position: 'absolute',
     top: 0,
