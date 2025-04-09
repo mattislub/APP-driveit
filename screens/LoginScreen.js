@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -13,12 +12,12 @@ export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
-      <ImageBackground
-  source={require('../assets/images/new-bg.png')}
-  style={styles.background}
-  resizeMode="contain"
-  imageStyle={styles.imagePosition} // חדש
->
+        <ImageBackground
+          source={require('../assets/images/new-bg.png')}
+          style={styles.background}
+          resizeMode="contain"
+          imageStyle={styles.imagePosition}
+        >
           <LinearGradient
             colors={['#F5F5F5', 'transparent']}
             style={styles.gradient}
@@ -53,26 +52,11 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: 'flex-end', // חדש
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   imagePosition: {
-    alignSelf: 'flex-end', // מיקום התמונה בתחתית
+    alignSelf: 'flex-end',
   },
   gradient: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 180,
-    zIndex: 5,
-  },
-  bottomBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 10,
-  },
-});
-
