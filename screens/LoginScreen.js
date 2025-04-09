@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import TopHeader from '../components/TopHeader';
 import BottomNavBar from '../components/BottomNavBar';
@@ -13,11 +13,17 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.outerWrapper}>
       <View style={styles.fixedSize}>
         <ImageBackground
-          source={require('../assets/images/new-bg.png')}
+          source={require('../assets/images/empty-bg.png')} // רקע ניטרלי
           style={styles.background}
-          resizeMode="contain"
-          imageStyle={styles.imagePosition}
+          resizeMode="cover"
         >
+          {/* תמונה בתחתית */}
+          <Image
+            source={require('../assets/images/new-bg.png')}
+            style={styles.innerImage}
+            resizeMode="contain"
+          />
+
           <LinearGradient
             colors={['#F5F5F5', 'transparent']}
             style={styles.gradient}
@@ -52,25 +58,9 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
-  imagePosition: {
-    alignSelf: 'flex-end',
-  },
-  gradient: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 180,
-    zIndex: 5,
-  },
-  bottomBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 10,
-  },
-});
+  innerImage: {
+    width: '100%',
+    height: '50%',
+    position:
