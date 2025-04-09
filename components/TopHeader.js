@@ -5,14 +5,14 @@ import MenuIcon from './MenuIcon';
 export default function TopHeader({ onPressMenu, onPressAction }) {
   return (
     <View style={styles.header}>
-      {/* כפתור חיוב בצד שמאל */}
-      <TouchableOpacity onPress={onPressAction} style={styles.leftButtonWrapper}>
-        <Text style={styles.leftButton}>חיוב</Text>
-      </TouchableOpacity>
-
       {/* אייקון תפריט בצד ימין */}
       <TouchableOpacity onPress={onPressMenu} style={styles.menuIconWrapper}>
         <MenuIcon width={30} height={30} />
+      </TouchableOpacity>
+
+      {/* כפתור חיוב בצד שמאל */}
+      <TouchableOpacity onPress={onPressAction} style={styles.leftButtonWrapper}>
+        <Text style={styles.leftButton}>חיוב</Text>
       </TouchableOpacity>
     </View>
   );
@@ -25,18 +25,18 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 60,
-    paddingHorizontal: 12,
-    flexDirection: 'row-reverse',
+    paddingHorizontal: 16,
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'transparent',
     zIndex: 10,
   },
   menuIconWrapper: {
-    marginRight: 8,
+    marginLeft: 8,
   },
   leftButtonWrapper: {
-    marginLeft: 8,
+    marginRight: 8,
   },
   leftButton: {
     backgroundColor: '#FFD877',
