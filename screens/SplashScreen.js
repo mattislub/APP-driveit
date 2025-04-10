@@ -1,36 +1,10 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
-import Logo from '../assets/Vector.svg'; // השתמש בייבוא SVG ישיר
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import { View, Text } from 'react-native';
 
-export default function SplashScreen({ navigation }) {
-  useEffect(() => {
-    const init = async () => {
-      const data = await AsyncStorage.getItem('deviceSetup');
-      setTimeout(() => {
-        if (data) {
-          navigation.replace('Login');
-        } else {
-          navigation.replace('Setup');
-        }
-      }, 1500); // השהייה של 1.5 שניות
-    };
-
-    init();
-  }, []);
-
+export default function SplashScreen() {
   return (
-    <View style={styles.container}>
-      <Logo width={220} height={220} />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+      <Text style={{ fontSize: 24 }}>שלום, Splash עובד!</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
