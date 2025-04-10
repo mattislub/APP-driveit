@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ScreenWrapper from '../components/ScreenWrapper';
 import TopHeader from '../components/TopHeader';
@@ -8,15 +8,12 @@ export default function SetupScreen({ navigation }) {
   const [deviceSerial, setDeviceSerial] = useState('');
   const [companySerial, setCompanySerial] = useState('');
   const [driverId, setDriverId] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const handleSave = async () => {
     if (!deviceSerial || !companySerial || !driverId) {
       Alert.alert('שגיאה', 'אנא מלא את כל השדות');
       return;
     }
-
-    setLoading(true);
 
     const data = {
       deviceSerial,
@@ -26,11 +23,8 @@ export default function SetupScreen({ navigation }) {
 
     try {
       await AsyncStorage.setItem('deviceSetup', JSON.stringify(data));
-      setTimeout(() => {
-        navigation.replace('Login');
-      }, 1000);
+      navigation.replace('Loading'); // מעבר ל־Loading במקום Login
     } catch (error) {
-      setLoading(false);
       Alert.alert('שגיאה', 'אירעה שגיאה בעת שמירת הנתונים');
     }
   };
@@ -45,10 +39,8 @@ export default function SetupScreen({ navigation }) {
         onPressMenu={() => handlePress('תפריט')}
         onPressAction={() => handlePress('חיוב')}
       />
-
       <View style={styles.innerContent}>
         <Text style={styles.title}>הגדרת מכשיר</Text>
-
         <TextInput
           style={styles.input}
           placeholder="מספר סידורי של המכשיר"
@@ -67,16 +59,8 @@ export default function SetupScreen({ navigation }) {
           value={driverId}
           onChangeText={setDriverId}
         />
-
         <View style={{ marginTop: 20 }}>
-          {loading ? (
-            <View style={{ alignItems: 'center' }}>
-              <ActivityIndicator size="large" color="#000" />
-              <Text style={{ marginTop: 10, fontSize: 16 }}>מגדיר את המכשיר...</Text>
-            </View>
-          ) : (
-            <Button title="המשך" onPress={handleSave} />
-          )}
+          <Button title="המשך" onPress={handleSave} />
         </View>
       </View>
     </ScreenWrapper>
