@@ -6,8 +6,7 @@ import SplashScreen from './screens/SplashScreen';
 import SetupScreen from './screens/SetupScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
-// ניתן להוסיף גם את LoadingScreen אם תשתמש בו
-// import LoadingScreen from './screens/LoadingScreen';
+import LoadingScreen from './screens/LoadingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +18,7 @@ export default function App() {
         <Stack.Screen name="Setup" component={SetupScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
-        {/* <Stack.Screen name="Loading" component={LoadingScreen} /> */}
+       <Stack.Screen name="Loading" component={LoadingScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
