@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Logo from '../assets/Vector.svg';
+import Logo from '../assets/NotFound.svg';
+
 
 export default function SplashScreen() {
   useEffect(() => {
@@ -35,3 +36,4 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+console.log('LOGO =', Logo);
